@@ -1,0 +1,12 @@
+.logobar {
+  height: 96px;
+  margin-left: 6%;
+  margin-right: 6%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logobar > div {
+  display: flex;
+  align-items: center;
+}

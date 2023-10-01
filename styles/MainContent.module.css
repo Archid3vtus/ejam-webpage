@@ -1,0 +1,233 @@
+.mainContentCard {
+  background-color: #fafafa;
+  margin: 50px 10% 50px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.mainContentCardMobile {
+  margin: 0px 2% 40px;
+  padding: 30px;
+}
+
+.mainContentCard > div {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.imageAd {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.commentCard {
+  border-radius: 18px;
+  background-color: white;
+  padding: 15px;
+  margin-top: 25px;
+}
+
+.productImage {
+  max-height: 100%;
+  background-color: #2c7ef8;
+  border-radius: 10px;
+}
+
+.discountCard {
+  background-color: #edf3fd;
+  border-radius: 10px;
+  padding: 2px 15px;
+}
+
+.claimButton {
+  background-color: #59ae43;
+  min-height: 59px;
+  width: 100%;
+  border-radius: 50px;
+  border-style: hidden;
+  cursor: pointer;
+}
+
+.claimInfo {
+  width: 100%;
+  border-radius: 4px;
+  border: #cfcfcf 1px solid;
+}
+
+.grey {
+  filter: invert(42%) sepia(1%) saturate(15%) hue-rotate(314deg) brightness(96%)
+    contrast(90%);
+}
+
+.textNullMargin {
+  margin: 0;
+}
+
+.textStrikeThrough {
+  text-decoration: line-through;
+}
+
+.font {
+  font-family: "Manrope";
+}
+
+.fontExtraSuperLight {
+  font-weight: 300;
+}
+
+.fontSuperLight {
+  font-weight: 400;
+}
+
+.fontLight {
+  font-weight: 500;
+}
+
+.fontLHeavy {
+  font-weight: 600;
+}
+
+.fontHeavy {
+  font-weight: 700;
+}
+
+.fontSmall {
+  font-size: 12px;
+}
+
+.fontSSMedium {
+  font-size: 14px;
+}
+
+.fontSMedium {
+  font-size: 16px;
+}
+
+.fontMedium {
+  font-size: 18px;
+}
+
+.fontMMBig {
+  font-size: 20px;
+}
+
+.fontMBig {
+  font-size: 22px;
+}
+
+.fontBig {
+  font-size: 24px;
+}
+
+.fontBBLarge {
+  font-size: 26px;
+}
+
+.fontBLarge {
+  font-size: 28px;
+}
+
+.fontLarge {
+  font-size: 30px;
+}
+
+.fontExtraLarge {
+  font-size: 32px;
+}
+
+.fontBlack {
+  color: black;
+}
+
+.fontLightGrey {
+  color: #969696;
+}
+
+.fontGrey {
+  color: #4d5254;
+}
+
+.fontDarkGrey {
+  color: #333333;
+}
+
+.fontRed {
+  color: #f82c2c;
+}
+
+.fontWhite {
+  color: white;
+}
+
+.fontBlue {
+  color: #2c7ef8;
+}
+
+.fontMetalBlue {
+  color: #37465a;
+}
+
+.fontAquamarine {
+  color: #5bb59a;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  column-gap: var(--gap);
+}
+
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: var(--gap);
+}
+
+.flexSpaceAround {
+  display: flex;
+  justify-content: space-around;
+  column-gap: var(--gap);
+}
+
+.flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  column-gap: var(--gap);
+}
+
+.flexEnd {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: var(--gap);
+}
+
+.centerAlign {
+  align-items: center;
+}
+
+.columnFlex {
+  flex-direction: column;
+  column-gap: 0 !important;
+  row-gap: var(--gap);
+}
+
+.noButtonStyle {
+  all: unset;
+}
+
+.buttonPointer {
+  cursor: pointer;
+}

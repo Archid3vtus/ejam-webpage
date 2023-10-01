@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #252f3d;
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar > div {
+  padding: 8px;
+  line-height: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar > div > p {
+  font-family: "Manrope";
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  text-transform: capitalize;
+}
+
+.navbar > div > img {
+  padding-right: 8px;
+}
