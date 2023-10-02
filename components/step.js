@@ -36,7 +36,7 @@ export default class step extends Component {
           src={mapStepStateToVector[this.props.stepState]}
           className={this.state.width < 1000 ? style.iconMobile : ""}
         />
-        <p>{this.props.children}</p>
+        {this.props.children}
       </div>
     );
   }

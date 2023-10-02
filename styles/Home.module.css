@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
-  line-height: 24px;
 }
 
 .title > div > h1 {
   font-family: "Manrope";
   font-weight: 400;
   font-size: 48px;
+  margin: 0;
   color: black;
 }
 
@@ -16,11 +16,25 @@
   font-family: "Manrope";
   font-weight: 400;
   font-size: 24px;
+  margin: 0;
   color: #4d5254;
 }
 
 .stepBar {
-  padding: 50px 8% 0;
+  padding: 30px 8% 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.titleMobile > div > h1 {
+  font-size: 32px !important;
+  padding-bottom: 10px;
+}
+
+.titleMobile > div > h2 {
+  font-size: 16px !important;
+}
+
+.bold {
+  font-weight: 700 !important;
 }

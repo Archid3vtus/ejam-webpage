@@ -9,6 +9,11 @@
   align-items: center;
 }
 
+.navbarMobile {
+  padding: 0 15px !important;
+  justify-content: space-between !important;
+}
+
 .navbar > div {
   padding: 8px;
   line-height: 12px;
@@ -26,4 +31,8 @@
 
 .navbar > div > img {
   padding-right: 8px;
+}
+
+.hidden {
+  display: none !important;
 }

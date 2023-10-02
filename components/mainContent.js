@@ -1,5 +1,5 @@
+import React, { Component, useEffect, useRef } from "react";
 import Image from "next/image";
-import React from "react";
 import style from "../styles/MainContent.module.css";
 
 import star from "../public/star.svg";
@@ -14,6 +14,7 @@ import rightArrow from "../public/arrow right.svg";
 import pipe from "../public/pipe.svg";
 import lock from "../public/lock.svg";
 import satisfactionSeal from "../public/images/satisfaction seal.png";
+import horizontalLine from "../public/horizontal line.svg";
 
 // card icons
 import amex from "../public/images/cards/amex.png";
@@ -107,7 +108,10 @@ function ProductListing(props) {
     font,
     fontExtraSuperLight,
     fontSuperLight,
+    fontSuperSmall,
+    fontSmall,
     fontSMedium,
+    fontSSMedium,
     fontMMBig,
     fontMBig,
     fontBlack,
@@ -118,78 +122,117 @@ function ProductListing(props) {
     fontLHeavy,
     textNullMargin,
     textStrikeThrough,
+    centerText,
   } = style;
 
   return (
     <div
-      className={`${style.flexCenter} ${style.centerAlign}`}
-      style={{ "--gap": "20px" }}
+      className={`${style.flexCenter} ${
+        props.isMobile ? style.columnFlex : ""
+      }`}
     >
-      <Image src={clarifionAirIonizerImage} className={style.productImage} />
-      <div
-        className={`${style.flexSpaceBetween} ${style.columnFlex}`}
-        style={{ "--gap": "8px" }}
-      >
-        <div className={`${style.flexSpaceBetween}`}>
-          <p
-            className={`${font} ${fontSuperLight} ${fontMMBig} ${fontBlack} ${textNullMargin}`}
-          >
-            Clarifion Air Ionizer
-          </p>
-          <div
-            className={`${style.flexEnd} ${style.centerAlign}`}
-            style={{ "--gap": "10px" }}
-          >
-            <p
-              className={`${font} ${fontLHeavy} ${fontSMedium} ${fontLightGrey} ${textStrikeThrough} ${textNullMargin}`}
-            >
-              $180
-            </p>
-            <p
-              className={`${font} ${fontLHeavy} ${fontMBig} ${fontBlue} ${textNullMargin}`}
-            >
-              $84
-            </p>
-          </div>
-        </div>
-        <Stars
-          amount={5}
-          className={`${style.flexStart} ${style.centerAlign}`}
-          starSize="18px"
-          style={{ "--gap": "2px" }}
+      <div className={`${style.flexCenter} ${style.centerAlign}`} style={{}}>
+        <Image
+          src={clarifionAirIonizerImage}
+          className={`${style.productImage} ${
+            props.isMobile ? style.productImageMobile : ""
+          }`}
         />
         <div
-          className={`${style.flexStart} ${style.centerAlign}`}
-          style={{ "--gap": "10px" }}
+          className={`${style.flexSpaceAround} ${style.columnFlex}`}
+          style={{ "--gap": "3px" }}
         >
-          <Image src={bulletPoint} />
-          <p
-            className={`${font} ${fontSMedium} ${textNullMargin} ${fontExtraSuperLight} ${fontMetalBlue}`}
+          <div
+            className={`${style.flexSpaceBetween}`}
+            style={props.isMobile ? { width: `${props.width - 135}px` } : {}}
           >
-            12 left in Stock
+            <p
+              className={`${font} ${fontSuperLight} ${
+                props.isMobile ? fontSSMedium : fontMMBig
+              } ${fontBlack} ${textNullMargin}`}
+            >
+              Clarifion Air Ionizer
+            </p>
+            <div
+              className={`${style.flexEnd} ${style.centerAlign}`}
+              style={{ "--gap": "10px" }}
+            >
+              <p
+                className={`${font} ${fontLHeavy} ${
+                  props.isMobile ? fontSuperSmall : fontSMedium
+                } ${fontLightGrey} ${textStrikeThrough} ${textNullMargin}`}
+              >
+                $180
+              </p>
+              <p
+                className={`${font} ${fontLHeavy} ${
+                  props.isMobile ? fontSSMedium : fontMBig
+                } ${fontBlue} ${textNullMargin}`}
+              >
+                $84
+              </p>
+            </div>
+          </div>
+          <Stars
+            amount={5}
+            className={`${style.flexStart} ${style.centerAlign}`}
+            starSize="18px"
+            style={{ "--gap": "2px", paddingBottom: "10px" }}
+          />
+          <div
+            className={`${style.flexStart} ${style.centerAlign}`}
+            style={{ "--gap": "10px" }}
+          >
+            <Image src={bulletPoint} />
+            <p
+              className={`${font} ${
+                props.isMobile ? fontSmall : fontSMedium
+              } ${textNullMargin} ${fontExtraSuperLight} ${fontMetalBlue}`}
+            >
+              12 left in Stock
+            </p>
+          </div>
+          <p
+            className={`${font} ${fontSuperLight} ${fontSMedium} ${textNullMargin} ${fontGrey} ${
+              props.isMobile ? style.hidden : ""
+            }`}
+          >
+            Simply plug a Clarifion into any standard outlet and replace bulky,
+            expensive air purifiers with a simple.
           </p>
         </div>
-        <p
-          className={`${font} ${fontSuperLight} ${fontSMedium} ${textNullMargin} ${fontGrey}`}
-        >
-          Simply plug a Clarifion into any standard outlet and replace bulky,
-          expensive air purifiers with a simple.
-        </p>
       </div>
+      <p
+        className={`${font} ${fontSuperLight} ${
+          props.isMobile ? fontSmall : fontSMedium
+        } ${textNullMargin} ${fontGrey} ${centerText} ${
+          props.isMobile ? "" : style.hidden
+        }`}
+      >
+        Simply plug a Clarifion into any standard outlet and replace bulky,
+        expensive air purifiers with a simple.
+      </p>
     </div>
   );
 }
 
 function ProductQuality(props) {
-  const { font, fontSMedium, fontSuperLight, fontGrey } = style;
+  const { font, fontSmall, fontSMedium, fontSuperLight, fontGrey } = style;
 
   return (
     <div
       className={`${style.flexStart} ${style.centerAlign}`}
       style={{ "--gap": "12px" }}
     >
-      <Image src={blueCheck} />
-      <p className={`${font} ${fontSMedium} ${fontSuperLight} ${fontGrey}`}>
+      <Image
+        src={blueCheck}
+        style={props.isMobile ? { maxWidth: "16px", height: "auto" } : {}}
+      />
+      <p
+        className={`${font} ${
+          props.isMobile ? fontSmall : fontSMedium
+        } ${fontSuperLight} ${fontGrey}`}
+      >
         {props.children}
       </p>
     </div>
@@ -197,7 +240,7 @@ function ProductQuality(props) {
 }
 
 function DiscountCard(props) {
-  const { font, fontSMedium, fontSuperLight, fontBlack } = style;
+  const { font, fontSSMedium, fontSMedium, fontSuperLight, fontBlack } = style;
 
   return (
     <div
@@ -205,7 +248,11 @@ function DiscountCard(props) {
       style={{ "--gap": "15px" }}
     >
       <Image src={percent} />
-      <p className={`${font} ${fontSMedium} ${fontSuperLight} ${fontBlack}`}>
+      <p
+        className={`${font} ${
+          props.isMobile ? fontSSMedium : fontSMedium
+        } ${fontSuperLight} ${fontBlack}`}
+      >
         {props.children}
       </p>
     </div>
@@ -213,7 +260,8 @@ function DiscountCard(props) {
 }
 
 function ClaimButton(props) {
-  const { font, fontMMBig, fontHeavy, fontWhite, uppercase } = style;
+  const { font, fontSSMedium, fontMMBig, fontHeavy, fontWhite, uppercase } =
+    style;
 
   return (
     <button
@@ -222,7 +270,9 @@ function ClaimButton(props) {
       style={{ "--gap": "15px" }}
     >
       <p
-        className={`${font} ${fontMMBig} ${fontHeavy} ${fontWhite} ${uppercase}`}
+        className={`${font} ${
+          props.isMobile ? fontSSMedium : fontMMBig
+        } ${fontHeavy} ${fontWhite} ${uppercase}`}
       >
         {props.children}
       </p>
@@ -236,23 +286,56 @@ function ClaimInfo(props) {
 
   return (
     <div
-      className={`${style.claimInfo} ${style.flexSpaceAround} ${style.centerAlign}`}
+      className={`${style.claimInfo} ${style.flexCenter} ${style.centerAlign} ${style.columnFlex}`}
+      style={{ "--gap": "5px" }}
     >
-      <p className={`${font} ${fontSuperLight} ${fontGrey} ${fontSmall}`}>
-        Free Shipping
-      </p>
-      <Image src={pipe} className={style.grey} />
       <div
-        className={`${style.flexCenter} ${style.centerAlign}`}
-        style={{ "--gap": "5px" }}
+        className={`${style.flexSpaceAround} ${style.centerAlign}`}
+        style={{ width: "100%" }}
       >
-        <Image src={lock} className={style.grey} />
         <p className={`${font} ${fontSuperLight} ${fontGrey} ${fontSmall}`}>
-          Secure 256-Bit SSL Encryption
+          Free Shipping
         </p>
+        <Image src={pipe} className={style.grey} />
+        <div
+          className={`${style.flexCenter} ${style.centerAlign}`}
+          style={{ "--gap": "5px" }}
+        >
+          <Image src={lock} className={style.grey} />
+          <p className={`${font} ${fontSuperLight} ${fontGrey} ${fontSmall}`}>
+            Secure 256-Bit SSL Encryption
+          </p>
+        </div>
+        <Image
+          src={pipe}
+          className={props.isMobile ? style.hidden : style.grey}
+        />
+        <div
+          className={`${style.flexCenter} ${
+            props.isMobile ? style.hidden : ""
+          }`}
+          style={{ "--gap": "2px" }}
+        >
+          <Image src={visa} />
+          <Image src={shopPay} />
+          <Image src={paypal} />
+          <Image src={mastercard} />
+          <Image src={gpay} />
+          <Image src={applePay} />
+          <Image src={amex} />
+        </div>
       </div>
-      <Image src={pipe} className={style.grey} />
-      <div className={`${style.flexCenter}`} style={{ "--gap": "2px" }}>
+      <Image
+        src={horizontalLine}
+        className={props.isMobile ? "" : style.hidden}
+      />
+
+      <div
+        className={`${style.flexCenter} ${style.centerAlign} ${
+          props.isMobile ? "" : style.hidden
+        }`}
+        style={{ "--gap": "2px", height: "30px" }}
+      >
         <Image src={visa} />
         <Image src={shopPay} />
         <Image src={paypal} />
@@ -274,6 +357,7 @@ function NoClaimButton(props) {
     fontRed,
     fontMedium,
     textNullMargin,
+    fontSmall,
   } = style;
   const { flexCenter } = style;
   const { noButtonStyle, buttonPointer } = style;
@@ -285,7 +369,9 @@ function NoClaimButton(props) {
         onClick={props.onClick}
       >
         <p
-          className={`${font} ${fontLight} ${uppercase} ${underline} ${fontRed} ${fontMedium} ${textNullMargin}`}
+          className={`${font} ${fontLight} ${uppercase} ${underline} ${fontRed} ${
+            props.isMobile ? fontSmall : fontMedium
+          } ${textNullMargin}`}
         >
           No thanks, I don't want this.
         </p>
@@ -294,77 +380,141 @@ function NoClaimButton(props) {
   );
 }
 
-export default function MainContent() {
+function SpecialPriceTitle(props) {
   return (
-    <div className={style.mainContent}>
-      <div>
-        <Image src={clarifionAd} className={style.imageAd} />
-        <Comment src={userImage} username="Ken T.">
-          “As soon as the Clarifions arrived I put one in my bedroom. This was
-          late in the afternoon. When I went to the bedroom in the evening it
-          smelled clean. When I went to bed I felt I could breathe better.
-          Wonderful.”
-        </Comment>
-      </div>
-      <div
-        className={`${style.flexStart} ${style.columnFlex}`}
-        style={{ "--gap": "16px" }}
-      >
-        <h1
-          className={`${style.font} ${style.fontLHeavy} ${style.fontExtraLarge} ${style.fontBlack}`}
-        >
-          <span className={`${style.fontBlue} ${style.fontSuperLight}`}>
-            ONE TIME ONLY
-          </span>{" "}
-          Special Price for 6 Extra Clarifion For Only{" "}
-          <span className={`${style.fontBlue} ${style.fontSuperLight}`}>
-            $14 Each
-          </span>{" "}
-          ($84.00 Total!)
-        </h1>
-        <ProductListing />
-        <div>
-          <ProductQuality>
-            Negative Ion Technology may{" "}
-            <span className={style.fontHeavy}>help with allergens</span>
-          </ProductQuality>
-          <ProductQuality>
-            Designed for{" "}
-            <span className={style.fontHeavy}>air rejuvenation</span>
-          </ProductQuality>
-          <ProductQuality>
-            <span className={style.fontHeavy}>Perfect for every room</span> in
-            all types of places
-          </ProductQuality>
-        </div>
-        <DiscountCard>
-          Save <span className={style.fontBlue}>53%</span> and get{" "}
-          <span className={style.fontBlue}>6 extra Clarifision</span> for only{" "}
-          <span className={style.fontBlue}>$14 Each</span>.
-        </DiscountCard>
-        <ClaimButton onClick={() => window.alert("claimed")}>
-          Yes - Claim my discount
-        </ClaimButton>
-        <ClaimInfo />
-        <NoClaimButton onClick={() => window.alert("Not claimed")} />
-        <div
-          className={`${style.flexCenter} ${style.centerAlign}`}
-          style={{ "--gap": "20px" }}
-        >
-          <Image src={satisfactionSeal} />
-          <p
-            className={`${style.font} ${style.fontSuperLight} ${style.fontSMedium} ${style.fontGrey}`}
-          >
-            If you are not completely thrilled with your Clarifion - We have
-            a&nbsp;
-            <span className={`${style.fontHeavy}`}>
-              30 day satisfaction guarantee
-            </span>
-            . Please refer to our return policy at the bottom of the page for
-            more details. Happy Shopping!
-          </p>
-        </div>
-      </div>
-    </div>
+    <h1 className={props.className}>
+      <span className={`${style.fontBlue} ${style.fontSuperLight}`}>
+        ONE TIME ONLY
+      </span>{" "}
+      Special Price for 6 Extra Clarifion For Only{" "}
+      <span className={`${style.fontBlue} ${style.fontSuperLight}`}>
+        $14 Each
+      </span>{" "}
+      ($84.00 Total!)
+    </h1>
   );
+}
+
+export default class MainContent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: 0,
+    };
+  }
+
+  updateWidth = () => {
+    this.setState({ width: window.innerWidth });
+  };
+
+  componentDidMount() {
+    this.updateWidth();
+
+    window.addEventListener("resize", this.updateWidth);
+  }
+
+  render() {
+    const desktopLayout = `${style.mainContentCard} ${style.flexCenter}`;
+    const mobileLayout = `${style.mainContentCardMobile} ${style.flexStart} ${style.columnFlex}`;
+
+    return (
+      <div
+        className={this.state.width < 1000 ? mobileLayout : desktopLayout}
+        style={{ "--gap": this.state.width < 1000 ? "10px" : "36px" }}
+      >
+        <div>
+          {this.state.width < 1000 ? (
+            <SpecialPriceTitle
+              className={`${style.font} ${style.fontLHeavy} ${style.fontBig} ${style.fontBlack} ${style.centerText}`}
+            />
+          ) : (
+            ""
+          )}
+          <Image src={clarifionAd} className={style.imageAd} />
+          {this.state.width < 1000 ? (
+            ""
+          ) : (
+            <Comment src={userImage} username="Ken T.">
+              “As soon as the Clarifions arrived I put one in my bedroom. This
+              was late in the afternoon. When I went to the bedroom in the
+              evening it smelled clean. When I went to bed I felt I could
+              breathe better. Wonderful.”
+            </Comment>
+          )}
+        </div>
+        <div
+          className={`${style.flexStart} ${style.columnFlex}`}
+          style={{ "--gap": "16px" }}
+        >
+          {this.state.width >= 1000 ? (
+            <SpecialPriceTitle
+              className={`${style.font} ${style.fontLHeavy} ${style.fontExtraLarge} ${style.fontBlack} `}
+            />
+          ) : (
+            ""
+          )}
+          <ProductListing
+            isMobile={this.state.width < 1000 ? true : false}
+            width={this.state.width}
+          />
+          <div>
+            <ProductQuality isMobile={this.state.width < 1000 ? true : false}>
+              Negative Ion Technology may{" "}
+              <span className={style.fontHeavy}>help with allergens</span>
+            </ProductQuality>
+            <ProductQuality isMobile={this.state.width < 1000 ? true : false}>
+              Designed for{" "}
+              <span className={style.fontHeavy}>air rejuvenation</span>
+            </ProductQuality>
+            <ProductQuality isMobile={this.state.width < 1000 ? true : false}>
+              <span className={style.fontHeavy}>Perfect for every room</span> in
+              all types of places
+            </ProductQuality>
+          </div>
+          <DiscountCard isMobile={this.state.width < 1000 ? true : false}>
+            Save <span className={style.fontBlue}>53%</span> and get{" "}
+            <span className={style.fontBlue}>6 extra Clarifision</span> for only{" "}
+            <span className={style.fontBlue}>$14 Each</span>.
+          </DiscountCard>
+          <ClaimButton
+            onClick={() => window.alert("claimed")}
+            isMobile={this.state.width < 1000 ? true : false}
+          >
+            Yes - Claim my discount
+          </ClaimButton>
+          <ClaimInfo isMobile={this.state.width < 1000 ? true : false} />
+          <NoClaimButton
+            onClick={() => window.alert("Not claimed")}
+            isMobile={this.state.width < 1000 ? true : false}
+          />
+          <div
+            className={`${style.flexCenter} ${style.centerAlign}`}
+            style={{ "--gap": "20px" }}
+          >
+            <Image
+              src={satisfactionSeal}
+              style={
+                this.state.width < 1000
+                  ? { maxWidth: "48px", height: "auto" }
+                  : {}
+              }
+            />
+            <p
+              className={`${style.font} ${style.fontSuperLight} ${
+                this.state.width < 1000 ? style.fontSmall : style.fontSMedium
+              } ${style.fontGrey}`}
+            >
+              If you are not completely thrilled with your Clarifion - We have
+              a&nbsp;
+              <span className={`${style.fontHeavy}`}>
+                30 day satisfaction guarantee
+              </span>
+              . Please refer to our return policy at the bottom of the page for
+              more details. Happy Shopping!
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
